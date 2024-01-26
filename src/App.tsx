@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import 'bootstrap/dist/css/bootstrap.css'
+import CardExample from './CardExample';
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+{/* You can declare many components in one file, but large files can get difficult to navigate.
+To solve this, you can export a component into its own file, and then import that component 
+from another file: */}
+function Gallery(){
+    return(
+        <img src='https://i.imgur.com/MK3eW3As.jpg' alt='Johnson' />
+    );
 }
 
-export default App
+function ItemList(){
+    return(
+        <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+        </ul>
+    );
+}
+
+const profile = {
+    name: 'sudhakar reddy',
+    theme:{
+        backgroundcolor : 'black',
+        color: 'pink'
+    }
+};
+
+export default function App(){
+    return (
+        <>
+            <div>
+                <h1 style={profile.theme}>{profile.name}</h1>
+                <section>
+                    <h1>scientists</h1>
+                    <Gallery/>
+                    <Gallery/>
+                </section>
+                <ItemList/>
+            </div>    
+            <CardExample/>    
+        </>
+    );
+}
