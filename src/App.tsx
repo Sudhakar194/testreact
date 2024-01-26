@@ -1,5 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import CardExample from './CardExample';
+import ConditionalRendering from './ConditionalRendering';
+import RenderingLists from './RenderingLists';
 
 {/* You can declare many components in one file, but large files can get difficult to navigate.
 To solve this, you can export a component into its own file, and then import that component 
@@ -28,6 +30,13 @@ const profile = {
     }
 };
 
+let count = 0;
+function CatCount({countVal}){
+    count = count + 1
+   return (
+   <h2> <b> Count # {count} # {countVal}</b></h2>);
+}
+
 export default function App(){
     return (
         <>
@@ -37,10 +46,15 @@ export default function App(){
                     <h1>scientists</h1>
                     <Gallery/>
                     <Gallery/>
-                </section>
-                <ItemList/>
+                </section>               
             </div>    
+            <ItemList/>
             <CardExample/>    
+            <ConditionalRendering/>
+            <RenderingLists/>
+            <CatCount countVal={1}/>
+            <br/>
+            <CatCount countVal={2}/>
         </>
     );
 }
